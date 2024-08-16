@@ -5,7 +5,7 @@ import Item from '../Item/Item'
 const NewCollections = (props) => {
   return (
     <div className='new-collections'>
-      <h1>NEW COLLECTIONS</h1>
+      <h1>NEW COLLECTIONSSS</h1>
       <hr />
       <div className="collections">
         {props.data.map((item,index)=>{
