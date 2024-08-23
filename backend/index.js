@@ -51,6 +51,7 @@ const fetchuser = async (req, res, next) => {
 };
 
 
+
 // Schema for creating user model
 const Users = mongoose.model("Users", {
   name: { type: String },
@@ -145,6 +146,17 @@ app.get("/allproducts", async (req, res) => {
   let products = await Product.find({});
   console.log("All Products");
   res.send(products);
+});
+
+
+app.post("/dull", async (req, res) => {
+  console.log("nahi hai hello");
+  const {numberi} = req.body; 
+  let numb = numberi;
+  for (var i = 0; i < 3; i++) {
+    numb++;
+  }
+  res.send(numb.toString());
 });
 
 
