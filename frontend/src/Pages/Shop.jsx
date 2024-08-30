@@ -23,7 +23,9 @@ const Shop = () => {
       fetchInfo();
     }, [])
 
-
+    const scrollToSection = (ref) => {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    };
   return (
     <div>
       <Hero/>

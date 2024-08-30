@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import navlogo from '../Assets/nav-logo.svg'
-import navprofileIcon from '../Assets/nav-profile.svg'
+import navprofileIcon from '../Assets/IMG_20240504_012849.jpg'
 
 const Navbar = () => {
   return (

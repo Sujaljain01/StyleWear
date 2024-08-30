@@ -12,7 +12,7 @@ const LoginSignup = () => {
 
   const login = async () => {
     let dataObj;
-    await fetch('https://backend-rouge-six-21.vercel.app/login', {
+    await fetch('http://localhost:4000/login', {
       method: 'POST',
       headers: {
         Accept: 'application/form-data',

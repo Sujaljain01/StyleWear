@@ -9,7 +9,7 @@ const ShopCategory = (props) => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = () => {
-    fetch('https://backend-rouge-six-21.vercel.app/allproducts')
+    fetch('http://localhost:4000/allproducts')
       .then((res) => res.json())
       .then((data) => setAllProducts(data))
   }

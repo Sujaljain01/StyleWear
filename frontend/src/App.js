@@ -9,16 +9,16 @@ import women_banner from "./Components/Assets/banner_women.png";
 import men_banner from "./Components/Assets/banner_mens.png";
 import kid_banner from "./Components/Assets/banner_kids.png";
 import LoginSignup from "./Pages/LoginSignup";
-
-export const backend_url = 'https://backend-rouge-six-21.vercel.app/';
+export const backend_url = 'http://localhost:4000';
 export const currency = '₹';
+
 
 function App() {
 
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar /> 
         <Routes>
           <Route path="/" element={<Shop gender="all" />} />
           <Route path="/mens" element={<ShopCategory banner={men_banner} category="men" />} />
