@@ -1,43 +1,70 @@
 import React, { useEffect, useState } from "react";
 import "./CSS/ShopCategory.css";
-import dropdown_icon from '../Components/Assets/dropdown_icon.png'
+import dropdown_icon from '../Components/Assets/dropdown_icon.png';
 import Item from "../Components/Item/Item";
 import { Link } from "react-router-dom";
-
+export const backend_url = process.env.REACT_APP_BACKEND_URL;
 const ShopCategory = (props) => {
-
   const [allproducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchInfo = () => {
-    fetch('http://localhost:4000/allproducts')
+    fetch(`${backend_url}/allproducts`)
       .then((res) => res.json())
-      .then((data) => setAllProducts(data))
-  }
+      .then((data) => {
+        setAllProducts(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Error fetching products:", err);
+        setLoading(false);
+      });
+  };
 
   useEffect(() => {
     fetchInfo();
-  }, [])
+  }, []);
+
+  // Filter products by category ahead of rendering
+  const filteredProducts = allproducts.filter(item => item.category === props.category);
 
   return (
     <div className="shopcategory">
       <img src={props.banner} className="shopcategory-banner" alt="" />
+
       <div className="shopcategory-indexSort">
-        <p><span>Showing 1 - 12</span> out of 54 Products</p>
-        <div className="shopcategory-sort">Sort by  <img src={dropdown_icon} alt="" /></div>
+        <p>
+          <span>Showing 1 - {filteredProducts.length > 12 ? 12 : filteredProducts.length}</span> out of {filteredProducts.length} Products
+        </p>
+        <div className="shopcategory-sort">Sort by <img src={dropdown_icon} alt="Sort" /></div>
       </div>
+
       <div className="shopcategory-products">
-        {allproducts.map((item, i) => {
-          if (props.category === item.category) {
-            return <Item id={item.id} key={i} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />;
-          }
-          else {
-            return null;
-          }
-        })}
+        {loading ? (
+          <p>Loading products...</p>
+        ) : (
+          filteredProducts.length > 0 ? (
+            filteredProducts.slice(0, 12).map((item, i) => (
+              <Item
+                id={item.id}
+                key={i}
+                name={item.name}
+                image={item.image}
+                new_price={item.new_price}
+                old_price={item.old_price}
+              />
+            ))
+          ) : (
+            <p>No products found for this category.</p>
+          )
+        )}
       </div>
-      <div className="shopcategory-loadmore">
-        <Link to='/' style={{ textDecoration: 'none' }}>Explore More</Link>
-      </div>
+
+      {filteredProducts.length > 12 && (
+        <div className="shopcategory-loadmore">
+          <Link to="/" style={{ textDecoration: 'none' }}>Explore More</Link>
+        </div>
+      )}
     </div>
   );
 };

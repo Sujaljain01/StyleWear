@@ -4,17 +4,17 @@ import Popular from '../Components/Popular/Popular'
 import Offers from '../Components/Offers/Offers'
 import NewCollections from '../Components/NewCollections/NewCollections'
 import NewsLetter from '../Components/NewsLetter/NewsLetter'
-
+export const backend_url = process.env.REACT_APP_BACKEND_URL;
 const Shop = () => {
 
   const [popular, setPopular] = useState([]);
   const [newcollection, setNewCollection] = useState([]);
 
   const fetchInfo = () => { 
-    fetch('http://localhost:4000/popularinwomen') 
+    fetch(`${backend_url}/popularinwomen`) 
             .then((res) => res.json()) 
             .then((data) => setPopular(data))
-    fetch('http://localhost:4000/newcollections') 
+    fetch(`${backend_url}/newcollections`) 
             .then((res) => res.json()) 
             .then((data) => setNewCollection(data))
     }
