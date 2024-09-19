@@ -151,7 +151,7 @@ app.get("/allproducts", async (req, res) => {
 
 app.post("/dull", async (req, res) => {
   console.log("nahi hai hello");
-  const {numberi} = req.body; 
+  const { numberi } = req.body;
   let numb = numberi;
   for (var i = 0; i < 3; i++) {
     numb++;
@@ -180,7 +180,7 @@ app.get("/popularinwomen", async (req, res) => {
 // endpoint for getting womens products data
 app.post("/relatedproducts", async (req, res) => {
   console.log("Related Products");
-  const {category} = req.body;
+  const { category } = req.body;
   const products = await Product.find({ category });
   const arr = products.slice(0, 4);
   res.send(arr);
