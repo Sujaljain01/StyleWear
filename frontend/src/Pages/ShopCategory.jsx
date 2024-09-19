@@ -3,18 +3,14 @@ import "./CSS/ShopCategory.css";
 import dropdown_icon from '../Components/Assets/dropdown_icon.png'
 import Item from "../Components/Item/Item";
 import { Link } from "react-router-dom";
-
+export const backend_url = process.env.REACT_APP_BACKEND_URL;
 const ShopCategory = (props) => {
 
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = () => {
 
-    fetch(`http://localhost:4000/allproducts`)
-    fetch('https://backend-rouge-six-21.vercel.app/allproducts')
-
-
-    fetch('http://localhost:4000/allproducts')
+    fetch(`${backend_url}/allproducts`)
 
       .then((res) => res.json())
       .then((data) => setAllProducts(data))
