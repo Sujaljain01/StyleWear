@@ -8,8 +8,3 @@ a {
   text-decoration: none !important;
   color: inherit;
 }
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

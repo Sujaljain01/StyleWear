@@ -10,12 +10,12 @@ const port = process.env.PORT || 4000;
 app.use(express.json());
 app.use(cors());
 
-// Database Connection
+// Database Connection With MongoDB
 mongoose.connect("mongodb+srv://sujaljain:00000000@cluster0.u88jart.mongodb.net/e-commerce");
 
 
 
-
+//Image Storage Engine 
 const storage = multer.diskStorage({
   destination: './upload/images',
   filename: (req, file, cb) => {

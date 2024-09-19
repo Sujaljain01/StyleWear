@@ -11,9 +11,7 @@
     width: 200px;
 }
 .nav-profile{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: 75px;
 }
 @media(max-width:800px){
     .navbar{

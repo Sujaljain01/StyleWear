@@ -12,7 +12,11 @@ const LoginSignup = () => {
 
   const login = async () => {
     let dataObj;
+<<<<<<< HEAD
     await fetch(`${backend_url}/login`, {
+=======
+    await fetch('https://backend-rouge-six-21.vercel.app/login', {
+>>>>>>> parent of 85db307 (new changes)
       method: 'POST',
       headers: {
         Accept: 'application/form-data',

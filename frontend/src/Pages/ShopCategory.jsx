@@ -9,7 +9,11 @@ const ShopCategory = (props) => {
   const [loading, setLoading] = useState(true);
 
   const fetchInfo = () => {
+<<<<<<< HEAD
     fetch(`${backend_url}/allproducts`)
+=======
+    fetch('https://backend-rouge-six-21.vercel.app/allproducts')
+>>>>>>> parent of 85db307 (new changes)
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

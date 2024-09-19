@@ -1,0 +1,17 @@
+[33mcommit 5320a03788004d80875becc65d414df04655e288[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: Sujal Jain <sujaljain.r@gmail.com>
+Date:   Thu Sep 19 02:50:57 2024 +0530
+
+    Revert "backend hosting"
+    
+    This reverts commit bd913ea57eea1bfcd7d8a97dbaf974dcfd5bfd0e.
+    
+    qa
+    
+     qal
+
+[33mcommit bd913ea57eea1bfcd7d8a97dbaf974dcfd5bfd0e[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Sujal Jain <sujaljain.r@gmail.com>
+Date:   Thu Sep 19 02:25:49 2024 +0530
+
+    backend hosting
